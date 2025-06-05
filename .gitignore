@@ -4,3 +4,6 @@ dist/
 .git/
 *.zip
 .DS_Store
+# Ignore virtual environments
+v/
+tfenv/
