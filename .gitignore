@@ -1,4 +1,7 @@
+# Ignore virtual environments
 venv/
 Backend pfe project/v/
+
+# Python cache
 *.pyc
 __pycache__/
