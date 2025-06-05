@@ -1,0 +1,210 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #caf0f8; /* Light Blue background */
+  color: #023e8a; /* Darker Blue text */
+  line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Add this */
+  background-color: #0077b6;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-left .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.navbar-right .navbar {
+  text-decoration: none;  
+}
+.logo-img {
+  margin-right: 10px;
+  position: absolute;
+  top: -10px;  /* Pulls it up */
+  left: 2rem;  /* Aligns it to the left with navbar padding */
+  z-index: 101;
+}
+.navbar-left {
+  position: relative;
+  height: 60px; /* Set a fixed height to prevent the large image from stretching the navbar */
+  overflow: visible; /* So the image can overflow outside */
+}
+
+
+
+/* Navbar Button Style */
+.btn-navbar {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-navbar:hover {
+  background-color: #0096c7; /* Lighter blue background on hover */
+}
+.navbar-right .btn-navbar{
+  text-decoration: none;
+}
+.logo-img {
+  height: 140px; /* Increase the image size */
+  margin-right: 10px;
+  margin-top: -30px; /* Moves the image up so it overflows into the next section */
+  position: relative;
+  z-index: 101; /* Ensures it's above the navbar */
+}
+
+  
+  .sbi-partnership-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .sbi-partnership-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #1f4e79;
+  }
+  
+  .sbi-partnership-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .sbi-contact-box {
+    background-color: #f5f5f5;
+    border-left: 5px solid #1f4e79;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sbi-contact-box h3 {
+    margin-top: 0;
+    color: #1f4e79;
+  }
+  
+  .sbi-contact-box a {
+    color: #1f4e79;
+    text-decoration: none;
+  }
+  
+  .sbi-contact-box a:hover {
+    text-decoration: underline;
+  }
+  .site-footer {
+    background-color: #0077b6;
+    color: #eee;
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 70px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-section {
+    flex: 1 1 250px;
+    min-width: 220px;
+  }
+  
+  .footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 6px;
+  }
+  
+  .footer-section ul li a,
+  .footer-section a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 35px;
+  }
+  
+  .footer-logo img {
+    max-width: 140px;
+    height: auto;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid black;
+    padding-top: 15px;
+    font-size: 13px;
+    color: white;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-logo {
+      margin-top: 20px;
+    }
+  
+    .footer-logo img {
+      max-width: 100px;
+      margin-left: 30px;
+    }
+  }
+  

@@ -1,0 +1,181 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <a routerLink="/home" class="logo-link">
+      <img src="SBI_Project_logo.png" alt="SBI Cancer Detection Logo" class="logo-img" />
+    </a>
+  </div>
+
+  <!-- Hamburger toggle button for mobile -->
+  <button class="navbar-toggle" (click)="toggleNavbar()" aria-label="Toggle navigation menu">
+    <!-- Simple hamburger icon (3 bars) -->
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Add a dynamic class to show/hide menu on mobile -->
+  <div class="navbar-right" [class.open]="navbarOpen">
+    <a routerLink="/about-sbi" class="btn-navbar" (click)="closeNavbar()">About Us</a>
+    <a *ngIf="isAdmin" routerLink="/doctorslist" class="btn-navbar" (click)="closeNavbar()">Doctors List</a>
+    <a href="#" (click)="scrollToSection($event); closeNavbar()" class="btn-navbar">How It Works</a>
+    <a *ngIf="isLoggedIn$ | async" routerLink="/test" class="btn-navbar" (click)="closeNavbar()">Skin Lesion Detection</a>
+
+    <!-- Login / Logout toggle -->
+    <a *ngIf="!(isLoggedIn$ | async)" routerLink="/login" class="btn-navbar" (click)="closeNavbar()">Login</a>
+    <a *ngIf="isLoggedIn$ | async" (click)="logout(); closeNavbar()" class="btn-navbar" style="cursor:pointer;">Logout</a>
+  </div>
+</nav>
+
+
+
+
+<!-- Hero Section -->
+<section id="about" class="hero" aria-label="Hero section with introductory information">
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="images.jpg" alt="Skin Cancer Awareness" />
+    </div>
+
+    <div class="hero-content">
+      <h1>
+        Early Detection Saves Lives
+        <span class="highlight">Check Your Skin Health</span> Today
+      </h1>
+      <p>
+        Our platform leverages advanced machine learning to assist in the early detection of skin cancer. 
+        By analyzing images of skin lesions and moles, we help identify suspicious patterns that could indicate melanoma or pigmented benign keratosis.
+        Early diagnosis is critical; it significantly improves treatment outcomes and saves lives.
+        <br /><br />
+        Upload a medical image to detect potential skin conditions using our AI model, or learn more about how the system supports diagnosis.
+      </p>
+
+      <div class="hero-buttons" style="justify-content:center;">
+        <button *ngIf="isLoggedIn$ | async" class="btn-primary" routerLink="/test">Start the Test</button>
+        <button class="btn-secondary-outline" onclick="document.getElementById('learn-more').scrollIntoView({ behavior: 'smooth' });">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works-section" aria-label="Explanation of how the platform works">
+  <h2>How It Works</h2>
+  <div class="steps-container">
+
+    <div class="step-card">
+      <div class="step-number" aria-hidden="true">1️⃣</div>
+      <h3>Upload Your Image</h3>
+      <ul>
+        <li>Choose a clear, well-lit photo of your skin lesion.</li>
+        <li>Formats supported: <strong>JPEG, JPG</strong>.</li>
+        <li>Use images at least <strong>224x224 pixels</strong>.</li>
+        <li>Maximum file size: 5 MB</li>
+      </ul>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number" aria-hidden="true">2️⃣</div>
+      <h3>Smart Analysis</h3>
+      <p>Our AI model scans the image for risk patterns and detects the following conditions:</p>
+      <ul class="highlighted-list">
+        <li><strong>+ Melanoma</strong></li>
+        <li><strong>+ Pigmented Benign Keratosis</strong></li>
+      </ul>
+      <p>Generates a detailed analysis report for you.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number" aria-hidden="true">3️⃣</div>
+      <h3>Your Results</h3>
+      <ul>
+        <li>Obtain AI-generated diagnostic insights within seconds.</li>
+        <li><strong>Note:</strong> These results are intended to assist clinical evaluation and should be reviewed by medical professionals.</li>
+      </ul>
+      
+    </div>
+
+  </div>
+</section>
+
+<!-- Learn More Section -->
+<section id="learn-more" class="learn-more-alt" aria-label="Detailed information about diagnoses">
+  <h2 class="learn-title">Learn More About These Diagnoses</h2>
+
+  <div class="diagnosis-row">
+    <div class="diagnosis-text">
+      <h3>Melanoma</h3>
+      <p>
+        A serious and potentially life-threatening form of skin cancer that begins in the melanocytes (pigment-producing cells). It can spread quickly to other parts of the body if not treated early.
+      </p>
+      <ul>
+        <li>Often appears as a new or changing mole with asymmetry or uneven borders</li>
+        <li>May show multiple colors (brown, black, red, or even white)</li>
+        <li>Can develop on any part of the skin, even those not exposed to the sun</li>
+        <li>Requires immediate medical evaluation and possible biopsy</li>
+      </ul>
+    </div>
+    <div class="diagnosis-img">
+      <img src="skin_screening_doctor_0.jpg" alt="Melanoma example" />
+    </div>
+  </div>
+
+  <div class="diagnosis-row reverse">
+    <div class="diagnosis-text">
+      <h3>Pigmented Benign Keratosis (PBK)</h3>
+      <p>
+        A non-cancerous skin lesion that can resemble melanoma due to its pigmentation. It's a type of seborrheic keratosis, commonly seen in older adults and generally harmless.
+      </p>
+      <ul>
+        <li>Warty, waxy, or scaly surface, often dark or multi-toned</li>
+        <li>Typically does not change much over time</li>
+        <li>Common on the trunk, face, or scalp</li>
+        <li>Treatment is usually unnecessary unless irritated or for cosmetic reasons</li>
+      </ul>
+    </div>
+    <div class="diagnosis-img">
+      <img src="imagess.jpg" alt="Pigmented Benign Keratosis example" />
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="SBI.png" alt="SBI Logo" />
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/about-sbi">About Us</a></li>
+        <li><a href="#How it Works" (click)="scrollToSection($event)">How It Works</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>About This Project</h4>
+      <p>
+        This platform leverages AI to support early skin cancer detection. Built by 
+        <a href="https://www.linkedin.com/in/jemaa-nadine-62451626a/" target="_blank" rel="noopener noreferrer">Jemaa Nadine</a> with the guidance of
+        <a href="https://sierrabravointelligence.com" target="_blank" rel="noopener noreferrer">Sierra Bravo Intelligence</a> (SBI), a leader in digital innovation based in Tunis.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p><strong>Email:</strong> <a href="mailto:contact&#64;sierrabravointelligence.com"> contact&#64;sierrabravointelligence.com</a></p>
+      <p>Phone: (+216) 28070378</p>
+      <p>Location: Tunis, Tunisia</p>
+    </div>
+  </div>
+
+
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Skin Cancer Awareness Platform. All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,82 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <a routerLink="/home" class="logo-link">
+      <img src="SBI_Project_logo.png" alt="SBI Cancer Detection Logo" class="logo-img" />
+    </a>
+    </div>
+  <div class="navbar-right">
+    <a *ngIf="isLoggedIn$ | async" routerLink="/test" class="btn-navbar">Skin Lesion Detection</a>
+
+    <!-- Login / Logout toggle -->
+    <a *ngIf="!(isLoggedIn$ | async)" routerLink="/login" class="btn-navbar">Login</a>
+    <a *ngIf="isLoggedIn$ | async" (click)="logout()" class="btn-navbar" style="cursor:pointer;">Logout</a>
+
+
+  </div>
+  
+</nav>
+<!-- SBI Partnership Section -->
+<section class="sbi-partnership-section">
+    <h2>Project in Partnership with Sierra Bravo Intelligence (SBI)</h2>
+    <p>
+      This project was developed in partnership with <strong>Sierra Bravo Intelligence (SBI)</strong>, a Tunis-based company specializing in digital transformation. SBI provides tailored solutions in software development, web and mobile applications, ERP systems, and strategic consulting. Their team brings deep technical expertise to support businesses throughout their digital evolution.
+    </p>
+    <p>
+      We are grateful for SBI's collaboration and support throughout this project, particularly in ensuring the platform's scalability and reliability.
+      For more information about their work, visit their official website:
+      <a href="https://sierrabravointelligence.com" target="_blank">sierrabravointelligence.com</a>.
+    </p>
+    <div class="sbi-contact-box">
+      <h3>Contact SBI</h3>
+      <p><strong>Address:</strong> 12 Carthage Salambo, Tunis, Tunisia</p>
+      <p><strong>Phone:</strong> (+216) 28070378</p>
+      <p><strong>Email:</strong> <a href="mailto:contact&#64;sierrabravointelligence.com">contact&#64;sierrabravointelligence.com</a></p>
+    </div>
+  </section>
+  
+  
+    <!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+      <!-- SBI Logo Section -->
+  <div class="footer-logo">
+    <img src="SBI.png" alt="SBI Logo" />
+  </div>
+  
+  
+      <!-- Left: Quick Links -->
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/about-sbi">About Us</a></li>
+          <li><a routerLink="/home" (click)="scrollToSection($event)">How It Works</a></li>
+
+        </ul>
+      </div>
+  
+      <!-- Middle: About -->
+      <div class="footer-section">
+        <h4>About This Project</h4>
+        <p>
+          This platform leverages AI to support early skin cancer detection. Built by <a href="https://www.linkedin.com/in/jemaa-nadine-62451626a/">Jemaa Nadine</a> with the guidance of
+          <a href="https://sierrabravointelligence.com" target="_blank">Sierra Bravo Intelligence</a> (SBI), a leader in digital innovation based in Tunis.
+        </p>
+      </div>
+  
+      <!-- Right: Contact -->
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p><strong>Email:</strong> <a href="mailto:contact&#64;sierrabravointelligence.com"> contact&#64;sierrabravointelligence.com</a></p>
+        <p>Phone: (+216) 28070378</p>
+        <p>Location: Tunis, Tunisia</p>
+      </div>
+  
+    </div>
+  
+    <!-- Bottom: Legal -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Skin Cancer Awareness Platform. All rights reserved.</p>
+    </div>
+  </footer>

@@ -1,0 +1,32 @@
+<nav class="navbar"> 
+    <div class="navbar-left">
+      <a routerLink="/home" class="logo-link">
+        <img src="SBI_Project_logo.png" alt="SBI Cancer Detection Logo" class="logo-img" />
+      </a>
+    </div>
+    <div class="navbar-right">
+      <a routerLink="/about-sbi" class="btn-navbar">About Us</a>
+      <a routerLink="/home" (click)="scrollToSection($event);" class="btn-navbar">How It Works</a>
+    </div>
+  </nav>
+  
+  <div class="doctor-list-container">
+    <h2>List of Doctors</h2>
+  
+    <!-- Add Doctor Form -->
+    <div class="add-doctor-form">
+        <input type="text" placeholder="Doctor's Name" [(ngModel)]="newDoctorName" />
+        <input type="email" placeholder="Doctor's Email" [(ngModel)]="newDoctorEmail" />
+        <button (click)="addDoctor()">Add Doctor</button>
+      </div>
+      
+  
+    <ul class="doctor-list">
+      <li *ngFor="let doc of doctors" class="doctor-card">
+        <div class="doctor-name">{{ doc.name }}</div>
+        <div class="doctor-email">{{ doc.email }}</div>
+        <button class="delete-btn" (click)="deleteDoctor(doc.email)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  
