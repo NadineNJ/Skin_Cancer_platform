@@ -1,7 +1,6 @@
-# Ignore virtual environments
+node_modules/
 venv/
-Backend pfe project/v/
-
-# Python cache
-*.pyc
-__pycache__/
+dist/
+.git/
+*.zip
+.DS_Store
