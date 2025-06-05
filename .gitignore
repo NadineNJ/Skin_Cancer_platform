@@ -1,0 +1,4 @@
+venv/
+Backend pfe project/v/
+*.pyc
+__pycache__/
