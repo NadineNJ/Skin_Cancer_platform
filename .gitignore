@@ -10,3 +10,6 @@ tfenv/
 
 # Ignore large model file
 backend/models/resnet_model.pth
+
+.env
+
