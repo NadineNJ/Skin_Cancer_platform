@@ -125,10 +125,10 @@ Frontend: Netlify or Vercel
 
 ## 9. Known Issues
 
-- 🔍 **Low-Quality Images**: Images with poor lighting or noise may lead to inaccurate predictions.
-- 🤖 **LLM Variability**: Generated reports can vary due to the randomness of the language model output.
-- 📦 **No Image History**: Uploaded images and prediction history are not stored in the database yet.
-- ⚠️ **Basal Cell Carcinoma Issue**: Although *Basal Cell Carcinoma* was included in training, the current model cannot reliably detect it during prediction. If such an image is uploaded, the system may return an error or invalid prediction result.
+- Low-Quality Images: Images with poor lighting or noise may lead to inaccurate predictions.
+- LLM Variability: Generated reports can vary due to the randomness of the language model output.
+- No Image History: Uploaded images and prediction history are not stored in the database yet.
+- Basal Cell Carcinoma Issue: Although *Basal Cell Carcinoma* was included in training, the current model cannot reliably detect it during prediction. If such an image is uploaded, the system may return an error or invalid prediction result.
 
 
 

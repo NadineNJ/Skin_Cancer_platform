@@ -2,9 +2,9 @@
 
 This project is a full-stack web application that uses deep learning to detect skin cancer types from uploaded images. The system provides a medical-style report based on the image analysis.
 
-- 🔍 Frontend: Angular
-- 🧠 Backend: Flask (with a trained CNN model)
-- 📄 Output: Predicted class, confidence, definition, and report
+- Frontend: Angular
+- Backend: Flask (with a trained CNN model)
+- Output: Predicted class, confidence, definition, and report
 
 ---
 ## 📊 Dataset Info
@@ -26,16 +26,16 @@ This dataset contains **9 distinct skin cancer types**, with images labeled and 
 > The dataset was cleaned, resized, normalized, and balanced before training the model.
 
 
-## 🚀 Getting Started
+## Getting Started
 
-### ✅ Prerequisites
+### Prerequisites
 
 - Python 3.8+
 - Node.js 16+ and Angular CLI
 
 ---
 
-## 🖥️ Run the Flask Backend
+## Run the Flask Backend
 
 ```bash
 cd backend
@@ -78,6 +78,6 @@ Preprocessing: Resize, normalize, augment
 Output: JSON prediction + optional PDF report
 
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
