@@ -67,6 +67,15 @@ def extract_json_from_text(text):
     return None
 
 def generate_report_openrouter(pred_class, confidence):
+    if not OPENROUTER_API_KEY:
+        print("❌ OPENROUTER_API_KEY not found. Make sure it's in the .env file and being loaded.")
+        return {
+            "overview": "Missing API key.",
+            "importance_of_early_detection": "",
+            "recommendation": "",
+            "confidence_explanation": ""
+        }
+
     prompt = f"""
 You are an expert medical assistant. Write a diagnostic report in JSON format using this structure:
 
@@ -80,34 +89,60 @@ You are an expert medical assistant. Write a diagnostic report in JSON format us
   "confidence_explanation": "<Explain model confidence>"
 }}
 """
+
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json"
     }
+
     payload = {
         "model": "openai/gpt-3.5-turbo",
         "messages": [{"role": "user", "content": prompt}]
     }
-    response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
-    if response.status_code == 200:
-        reply = response.json().get("choices", [{}])[0].get("message", {}).get("content", "").strip()
-        parsed_report = extract_json_from_text(reply)
-        if parsed_report:
-            return parsed_report
+
+    print("📦 Sending request to OpenRouter...")
+    print("✅ OPENROUTER_API_KEY:", OPENROUTER_API_KEY[:5] + "...")
+    print("📤 Payload:", json.dumps(payload, indent=2))
+
+    try:
+        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
+        print("🔁 Response status:", response.status_code)
+
+        if response.status_code == 200:
+            reply = response.json().get("choices", [{}])[0].get("message", {}).get("content", "").strip()
+            print("📥 Raw OpenRouter reply:", reply)
+
+            parsed_report = extract_json_from_text(reply)
+            if parsed_report:
+                return parsed_report
+            else:
+                print("⚠️ Failed to parse JSON from reply.")
+                return {
+                    "overview": "Error parsing structured report.",
+                    "importance_of_early_detection": "",
+                    "recommendation": "",
+                    "confidence_explanation": ""
+                }
+
         else:
+            print("❌ API request failed. Response:")
+            print(response.text)
             return {
-                "overview": "Error parsing structured report.",
+                "overview": f"Error {response.status_code}: {response.text}",
                 "importance_of_early_detection": "",
                 "recommendation": "",
                 "confidence_explanation": ""
             }
-    else:
+
+    except Exception as e:
+        print("❌ Exception during API call:", str(e))
         return {
-            "overview": f"Error {response.status_code}: {response.text}",
+            "overview": "Exception occurred during API call.",
             "importance_of_early_detection": "",
             "recommendation": "",
             "confidence_explanation": ""
         }
+
 
 # ----------- Auth APIs -----------
 

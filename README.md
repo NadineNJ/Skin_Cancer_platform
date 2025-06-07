@@ -30,8 +30,9 @@ This dataset contains **9 distinct skin cancer types**, with images labeled and 
 
 ### Prerequisites
 
-- Python 3.8+
-- Node.js 16+ and Angular CLI
+- Python 3.8+  
+- Node.js 16+ and Angular CLI  
+- **tfenv** (TensorFlow version manager) for frontend TensorFlow version control (optional but recommended)
 
 ---
 
@@ -40,7 +41,11 @@ This dataset contains **9 distinct skin cancer types**, with images labeled and 
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
 pip install -r requirements.txt
 python run.py
 
@@ -50,6 +55,11 @@ The backend will be available at http://localhost:5000/.
 
 🌐 Run the Angular Frontend
 cd frontend
+
+# If using tfenv (recommended):
+tfenv install 2.19.0
+tfenv use 2.19.0
+
 npm install
 ng serve
 
